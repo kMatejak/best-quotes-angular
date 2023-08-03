@@ -15,7 +15,7 @@ export class AppComponent {
   // Pole do ukrywania i pokazywania formularza
   isFormVisible = false;
   // pole quotation reprezentuje pojedynczy cytat
-  quotation: Quotation = { author: '', quotation: '', votes: 0 };
+  quotation: Quotation = { author: '', sentence: '', votes: 0 };
 
   // dodajemy sortowanie
   sortByBestVotes(): Quotation[] {
@@ -36,6 +36,6 @@ export class AppComponent {
   // dodaje cytat na początek listy i resetuje pole quotation
   addQuotation() {
     this.quotes.unshift(this.quotation);
-    this.quotation = { author: '', quotation: '', votes: 0 };
+    this.quotation = { author: '', sentence: '', votes: 0 };
   }
 }
