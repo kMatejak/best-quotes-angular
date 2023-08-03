@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 // nie zapomnijmy o dwóch importach
 import { Quotation } from './models/quotation';
 import { QUOTES } from './models/data-base';

@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms'; // dodajemy nowy import
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    FormsModule, // dodajemy nowy moduł
+    FormsModule // dodajemy nowy moduł
   ],
   providers: [],
   bootstrap: [AppComponent],
