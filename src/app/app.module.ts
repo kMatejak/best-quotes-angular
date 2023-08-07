@@ -7,8 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
-  imports: [],
-  providers: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
