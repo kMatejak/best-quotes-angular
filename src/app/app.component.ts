@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { NgModule } from '@angular/core';
-// nie zapomnijmy o dwóch importach
+import { QUOTES } from './models/database';
 import { Quotation } from './models/quotation';
-import { QUOTES } from './models/data-base';
 
 @Component({
   selector: 'app-root',
@@ -10,32 +8,34 @@ import { QUOTES } from './models/data-base';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  // Pole do ukrywania i pokazywania formularza
+  showForm = false;
   // nowe pole reprezentującę listę cytatów
   quotes: Quotation[] = QUOTES;
-  // Pole do ukrywania i pokazywania formularza
-  isFormVisible = false;
   // pole quotation reprezentuje pojedynczy cytat
   quotation: Quotation = { author: '', sentence: '', votes: 0 };
 
-  // dodajemy sortowanie
-  sortByBestVotes(): Quotation[] {
-    return [...this.quotes].sort((a, b) => b.votes - a.votes);
-  }
-
   // metoda obsługuje głosowanie na konkretny cytat
   addVote(quotation: Quotation, value: number) {
-    quotation.votes = quotation.votes ? quotation.votes : 0;
     quotation.votes += value;
   }
 
   // przełącza pole klasy true / false
-  switchFormVisibility(): void {
-    this.isFormVisible = !this.isFormVisible;
+  onSwitchForm(): void {
+    this.showForm = !this.showForm;
   }
 
   // dodaje cytat na początek listy i resetuje pole quotation
   addQuotation() {
     this.quotes.unshift(this.quotation);
     this.quotation = { author: '', sentence: '', votes: 0 };
+  }
+
+  bestQuotes() {
+    return this.quotes.filter(q => q.votes > 0);
+  }
+
+  worstQuotes() {
+    return this.quotes.filter(q => q.votes < 0);
   }
 }
